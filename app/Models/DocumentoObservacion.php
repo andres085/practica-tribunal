@@ -12,6 +12,7 @@ class DocumentoObservacion extends Model
     protected $table = "documento_observaciones";
 
     protected $fillable = [
-        'observacion'
+        'observacion',
+        'id_documento'
     ];
 }
