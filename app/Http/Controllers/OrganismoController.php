@@ -14,7 +14,9 @@ class OrganismoController extends Controller
      */
     public function index()
     {
-        //
+        $organismos = Organismo::all();
+
+        return response()->json($organismos);
     }
 
     /**
@@ -35,7 +37,11 @@ class OrganismoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $organismo = Organismo::create($request->post());
+
+        return response()->json([
+            'organismo' => $organismo
+        ]);
     }
 
     /**
@@ -46,7 +52,7 @@ class OrganismoController extends Controller
      */
     public function show(Organismo $organismo)
     {
-        //
+        return response()->json($organismo);
     }
 
     /**
@@ -69,7 +75,10 @@ class OrganismoController extends Controller
      */
     public function update(Request $request, Organismo $organismo)
     {
-        //
+        $organismo->fill($request->post())->save();
+        return response()->json([
+            'organismo' => $organismo
+        ]);
     }
 
     /**
@@ -80,6 +89,7 @@ class OrganismoController extends Controller
      */
     public function destroy(Organismo $organismo)
     {
-        //
+        $organismo->delete();
+        return response()->json();
     }
 }

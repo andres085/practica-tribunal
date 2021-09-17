@@ -9,6 +9,8 @@ class DocumentoObservacion extends Model
 {
     use HasFactory;
 
+    protected $table = "documento_observaciones";
+
     protected $fillable = [
         'observacion'
     ];

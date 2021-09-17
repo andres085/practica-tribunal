@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Expediente;
 use Illuminate\Http\Request;
-
 class ExpedienteController extends Controller
 {
     /**
@@ -14,7 +13,9 @@ class ExpedienteController extends Controller
      */
     public function index()
     {
-        //
+        $expedientes = Expediente::all();
+
+        return response()->json($expedientes);
     }
 
     /**
@@ -35,7 +36,11 @@ class ExpedienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $expediente = Expediente::create($request->post());
+
+        return response()->json([
+            'expediente'=>$expediente
+        ]);
     }
 
     /**
@@ -46,7 +51,7 @@ class ExpedienteController extends Controller
      */
     public function show(Expediente $expediente)
     {
-        //
+        return response()->json($expediente);
     }
 
     /**
@@ -69,7 +74,10 @@ class ExpedienteController extends Controller
      */
     public function update(Request $request, Expediente $expediente)
     {
-        //
+        $expediente->fill($request->post())->save();
+        return response()->json([
+            'expediente' => $expediente
+        ]);
     }
 
     /**
@@ -80,6 +88,7 @@ class ExpedienteController extends Controller
      */
     public function destroy(Expediente $expediente)
     {
-        //
+        $expediente->delete();
+        return response()->json();
     }
 }

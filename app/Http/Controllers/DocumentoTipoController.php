@@ -14,7 +14,10 @@ class DocumentoTipoController extends Controller
      */
     public function index()
     {
-        //
+        $documentoTipos = DocumentoTipo::all();
+
+        return response()->json($documentoTipos);
+
     }
 
     /**
@@ -35,7 +38,12 @@ class DocumentoTipoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $documentoTipo = DocumentoTipo::create($request->post());
+
+        return response()->json([
+            'documentoTipo'=>$documentoTipo
+        ]);
+
     }
 
     /**
@@ -46,7 +54,7 @@ class DocumentoTipoController extends Controller
      */
     public function show(DocumentoTipo $documentoTipo)
     {
-        //
+        return response()->json($documentoTipo);
     }
 
     /**
@@ -69,7 +77,10 @@ class DocumentoTipoController extends Controller
      */
     public function update(Request $request, DocumentoTipo $documentoTipo)
     {
-        //
+        $documentoTipo->fill($request->post())->save();
+        return response()->json([
+            'documentoTipo' => $documentoTipo
+        ]);
     }
 
     /**
@@ -80,6 +91,7 @@ class DocumentoTipoController extends Controller
      */
     public function destroy(DocumentoTipo $documentoTipo)
     {
-        //
+        $documentoTipo->delete();
+        return response()->json();
     }
 }

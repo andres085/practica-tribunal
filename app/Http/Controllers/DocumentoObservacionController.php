@@ -14,7 +14,9 @@ class DocumentoObservacionController extends Controller
      */
     public function index()
     {
-        //
+        $documentoObservaciones = DocumentoObservacion::all();
+
+        return response()->json($documentoObservaciones);
     }
 
     /**
@@ -35,7 +37,12 @@ class DocumentoObservacionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $documentoObservacion = DocumentoObservacion::create($request->post());
+
+        return response()->json([
+            'documentoObservacion'=>$documentoObservacion
+        ]);
+
     }
 
     /**
@@ -46,7 +53,7 @@ class DocumentoObservacionController extends Controller
      */
     public function show(DocumentoObservacion $documentoObservacion)
     {
-        //
+        return response()->json($documentoObservacion);
     }
 
     /**
@@ -69,7 +76,11 @@ class DocumentoObservacionController extends Controller
      */
     public function update(Request $request, DocumentoObservacion $documentoObservacion)
     {
-        //
+        $documentoObservacion->fill($request->post())->save();
+        return response()->json([
+            'documentoObservacion' => $documentoObservacion
+        ]);
+
     }
 
     /**
@@ -80,6 +91,7 @@ class DocumentoObservacionController extends Controller
      */
     public function destroy(DocumentoObservacion $documentoObservacion)
     {
-        //
+        $documentoObservacion->delete();
+        return response()->json();
     }
 }
