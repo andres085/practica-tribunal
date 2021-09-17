@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class DocumentoTipo extends Model
 {
     use HasFactory;
+
+     protected $fillable = [
+        'tipo'
+    ];
 }
