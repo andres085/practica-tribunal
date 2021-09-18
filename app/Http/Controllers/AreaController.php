@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Organismo;
+use App\Models\Area;
 use Illuminate\Http\Request;
 
-class OrganismoController extends Controller
+class AreaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,10 @@ class OrganismoController extends Controller
      */
     public function index()
     {
-        $organismos = Organismo::with('documentos')->get()->all();
+        $areas = Area::with('documentos')->get()->all();
 
-        return response()->json($organismos);
+        return response()->json($areas);
+
     }
 
     /**
@@ -37,31 +38,32 @@ class OrganismoController extends Controller
      */
     public function store(Request $request)
     {
-        $organismo = Organismo::create($request->post());
+        $area = Area::create($request->post());
 
         return response()->json([
-            'organismo' => $organismo
+            'area'=>$area
         ]);
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Organismo  $organismo
+     * @param  \App\Models\Area  $area
      * @return \Illuminate\Http\Response
      */
-    public function show(Organismo $organismo)
+    public function show(Area $area)
     {
-        return response()->json($organismo);
+        return response()->json($area);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Organismo  $organismo
+     * @param  \App\Models\Area  $area
      * @return \Illuminate\Http\Response
      */
-    public function edit(Organismo $organismo)
+    public function edit(Area $area)
     {
         //
     }
@@ -70,26 +72,26 @@ class OrganismoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Organismo  $organismo
+     * @param  \App\Models\Area  $area
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Organismo $organismo)
+    public function update(Request $request, Area $area)
     {
-        $organismo->fill($request->post())->save();
+        $area->fill($request->post())->save();
         return response()->json([
-            'organismo' => $organismo
+            'area' => $area
         ]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Organismo  $organismo
+     * @param  \App\Models\Area  $area
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Organismo $organismo)
+    public function destroy(Area $area)
     {
-        $organismo->delete();
+        $area->delete();
         return response()->json();
     }
 }
