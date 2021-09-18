@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AreaController;
 use App\Http\Controllers\DocumentoController;
 use App\Http\Controllers\OrganismoController;
 use App\Http\Controllers\ExpedienteController;
@@ -25,6 +26,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::resource('expediente', ExpedienteController::class);
 Route::resource('organismo', OrganismoController::class);
+Route::resource('area', AreaController::class);
 Route::resource('documento-tipo', DocumentoTipoController::class);
 Route::resource('documento-observacion', DocumentoObservacionController::class)->parameters(['documento_observacion' => 'documento_observaciones']);
 Route::resource('documento', DocumentoController::class);

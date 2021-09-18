@@ -19,6 +19,7 @@ class Documento extends Model
         'id_expediente',
         'id_tipo',
         'id_organismo',
+        'id_area',
         'anio',
         'tema',
         'informacion',
