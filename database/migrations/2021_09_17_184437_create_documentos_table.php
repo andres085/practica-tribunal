@@ -15,6 +15,7 @@ class CreateDocumentosTable extends Migration
     {
         Schema::create('documentos', function (Blueprint $table) {
             $table->id()->unique();
+            $table->integer('numero')->unique();
             $table->foreignId('id_expediente')->constrained('expedientes');
             $table->foreignId('id_tipo')->constrained('documento_tipos')->unique();
             $table->foreignId('id_organismo')->constrained('organismos')->unique();
