@@ -3,6 +3,10 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Database\Seeders\AreaSeeder;
+use Database\Seeders\OrganismoSeeder;
+use Database\Seeders\ExpedienteSeeder;
+use Database\Seeders\DocumentoTipoSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +17,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+       $this->call(ExpedienteSeeder::class);
+       $this->call(DocumentoTipoSeeder::class);
+       $this->call(OrganismoSeeder::class);
+       $this->call(AreaSeeder::class);
     }
 }
