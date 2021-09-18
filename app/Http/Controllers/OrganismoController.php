@@ -14,7 +14,7 @@ class OrganismoController extends Controller
      */
     public function index()
     {
-        $organismos = Organismo::all();
+        $organismos = Organismo::with('documentos')->get()->all();
 
         return response()->json($organismos);
     }
