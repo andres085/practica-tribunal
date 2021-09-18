@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Documento;
 use Illuminate\Http\Request;
+use App\Http\Requests\DocumentoStoreRequest;
 
 class DocumentoController extends Controller
 {
@@ -35,9 +36,9 @@ class DocumentoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DocumentoStoreRequest $request)
     {
-        $documento = Documento::create($request->post());
+        $documento = Documento::create($request->validated());
 
         return response()->json([
             'documento'=>$documento

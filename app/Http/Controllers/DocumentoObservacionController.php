@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DocumentoObservacion;
 use Illuminate\Http\Request;
+use App\Models\DocumentoObservacion;
+use App\Http\Requests\DocumentoObservacionStoreRequest;
 
 class DocumentoObservacionController extends Controller
 {
@@ -35,9 +36,9 @@ class DocumentoObservacionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DocumentoObservacionStoreRequest $request)
     {
-        $documentoObservacion = DocumentoObservacion::create($request->post());
+        $documentoObservacion = DocumentoObservacion::create($request->validated());
 
         return response()->json([
             'documentoObservacion'=>$documentoObservacion

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DocumentoTipo;
 use Illuminate\Http\Request;
+use App\Models\DocumentoTipo;
+use App\Http\Requests\DocumentoTipoStoreRequest;
 
 class DocumentoTipoController extends Controller
 {
@@ -36,9 +37,9 @@ class DocumentoTipoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DocumentoTipoStoreRequest $request)
     {
-        $documentoTipo = DocumentoTipo::create($request->post());
+        $documentoTipo = DocumentoTipo::create($request->validated());
 
         return response()->json([
             'documentoTipo'=>$documentoTipo
