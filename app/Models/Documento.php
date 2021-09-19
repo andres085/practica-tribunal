@@ -29,6 +29,7 @@ class Documento extends Model
 
 
      protected $fillable = [
+        'numero',
         'id_expediente',
         'id_tipo',
         'id_organismo',
@@ -38,4 +39,23 @@ class Documento extends Model
         'informacion',
         'caratula'
     ];
+
+    public static function boot()
+    {
+        parent::boot();
+        self::creating(function (Documento $documento) {
+
+            $count = Documento::where('anio', '=', $documento->anio)->get()->count();
+
+            if($count == 0){
+                echo "Tiene 0 items en ese año";
+                $documento->numero = 1;
+            } else {
+                echo "Tiene al menos 1 items en ese año";
+                $documento->where('anio', '=', $documento->anio)->orderBy('numero', 'desc')->first();
+                $documento->increment('numero');
+            }
+        });
+    }
+
 }

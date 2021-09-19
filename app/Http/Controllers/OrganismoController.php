@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Organismo;
 use Illuminate\Http\Request;
+use App\Http\Requests\OrganismoStoreRequest;
 
 class OrganismoController extends Controller
 {
@@ -35,9 +36,9 @@ class OrganismoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(OrganismoStoreRequest $request)
     {
-        $organismo = Organismo::create($request->post());
+        $organismo = Organismo::create($request->validated());
 
         return response()->json([
             'organismo' => $organismo

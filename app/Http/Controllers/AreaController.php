@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Area;
 use Illuminate\Http\Request;
+use App\Http\Requests\AreaStoreRequest;
 
 class AreaController extends Controller
 {
@@ -36,9 +37,9 @@ class AreaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AreaStoreRequest $request)
     {
-        $area = Area::create($request->post());
+        $area = Area::create($request->validated());
 
         return response()->json([
             'area'=>$area

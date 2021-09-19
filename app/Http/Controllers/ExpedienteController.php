@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Expediente;
 use Illuminate\Http\Request;
+use App\Http\Requests\ExpedienteStoreRequest;
+
 class ExpedienteController extends Controller
 {
     /**
@@ -34,13 +36,11 @@ class ExpedienteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ExpedienteStoreRequest $request)
     {
-        $expediente = Expediente::create($request->post());
+        $expediente = Expediente::create($request->validated());
 
-        return response()->json([
-            'expediente'=>$expediente
-        ]);
+        return response()->json($expediente);
     }
 
     /**

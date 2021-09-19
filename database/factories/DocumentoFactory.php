@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class DocumentoFactory extends Factory
 {
+
+    private static $orden = 1;
     /**
      * The name of the factory's corresponding model.
      *
@@ -21,7 +23,9 @@ class DocumentoFactory extends Factory
      */
     public function definition()
     {
+
         return [
+        'numero' => self::$orden++,
         'id_expediente' => rand(1, 10),
         'id_tipo' => rand(1, 10),
         'id_organismo' => rand(1, 10),
