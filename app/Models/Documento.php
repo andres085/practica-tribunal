@@ -29,6 +29,7 @@ class Documento extends Model
 
 
      protected $fillable = [
+        'numero',
         'id_expediente',
         'id_tipo',
         'id_organismo',
@@ -38,4 +39,13 @@ class Documento extends Model
         'informacion',
         'caratula'
     ];
+
+    public static function boot()
+    {
+        parent::boot();
+        self::creating(function ($model) {
+            $model->numero = $model->max('numero') + 1;
+        });
+    }
+
 }

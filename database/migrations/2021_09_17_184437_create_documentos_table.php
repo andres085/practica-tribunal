@@ -15,11 +15,11 @@ class CreateDocumentosTable extends Migration
     {
         Schema::create('documentos', function (Blueprint $table) {
             $table->id()->unique();
-            $table->integer('numero')->unique();
+            $table->integer('numero')->unique()->default(0);
             $table->foreignId('id_expediente')->constrained('expedientes');
             $table->foreignId('id_tipo')->constrained('documento_tipos')->unique();
-            $table->foreignId('id_organismo')->constrained('organismos')->unique();
-            $table->foreignId('id_area')->constrained('areas')->unique();
+            $table->foreignId('id_organismo')->nullable()->constrained('organismos')->unique();
+            $table->foreignId('id_area')->nullable()->constrained('areas')->unique();
             $table->year('anio')->unique();
             $table->string('tema');
             $table->text('informacion');

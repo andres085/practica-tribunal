@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
        $this->call(DocumentoTipoSeeder::class);
        $this->call(OrganismoSeeder::class);
        $this->call(AreaSeeder::class);
-       $this->call(DocumentoSeeder::class);
-       $this->call(DocumentoObservacionSeeder::class);
+    //    $this->call(DocumentoSeeder::class);
+    //    $this->call(DocumentoObservacionSeeder::class);
     }
 }
