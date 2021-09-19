@@ -43,8 +43,18 @@ class Documento extends Model
     public static function boot()
     {
         parent::boot();
-        self::creating(function ($model) {
-            $model->numero = $model->max('numero') + 1;
+        self::creating(function (Documento $documento) {
+
+            $count = Documento::where('anio', '=', $documento->anio)->get()->count();
+
+            if($count == 0){
+                echo "Tiene 0 items en ese año";
+                $documento->numero = 1;
+            } else {
+                echo "Tiene al menos 1 items en ese año";
+                $documento->where('anio', '=', $documento->anio)->orderBy('numero', 'desc')->first();
+                $documento->increment('numero');
+            }
         });
     }
 

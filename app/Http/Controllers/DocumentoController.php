@@ -40,6 +40,7 @@ class DocumentoController extends Controller
     public function store(DocumentoStoreRequest $request)
     {
         $documento = Documento::create($request->post());
+        // dd($documento);
 
         return response()->json([
             'documento'=>$documento,
