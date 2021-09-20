@@ -20,15 +20,6 @@ class ExpedienteController extends Controller
         return response()->json($expedientes);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -55,24 +46,13 @@ class ExpedienteController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Expediente  $expediente
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Expediente $expediente)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Expediente  $expediente
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Expediente $expediente)
+    public function update(ExpedienteStoreRequest $request, Expediente $expediente)
     {
         $expediente->fill($request->post())->save();
         return response()->json([

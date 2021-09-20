@@ -22,7 +22,7 @@ class OrganismoFactory extends Factory
     public function definition()
     {
         return [
-            'nombre' => $this->faker->randomElement(['Educación', 'Saludo', 'Legislatura', 'Justicia', 'Seguridad']),
+            'nombre' => $this->faker->randomElement(['Educación', 'Salud', 'Legislatura', 'Justicia', 'Seguridad']),
         ];
     }
 }

@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Area;
 use App\Models\Organismo;
 use App\Models\Expediente;
+use App\Models\DocumentoObservacion;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -27,6 +28,10 @@ class Documento extends Model
         return $this->belongsTo(Area::class);
     }
 
+    public function observaciones()
+    {
+        return $this->hasMany(DocumentoObservacion::class, 'id_documento');
+    }
 
      protected $fillable = [
         'numero',
@@ -48,10 +53,8 @@ class Documento extends Model
             $count = Documento::where('anio', '=', $documento->anio)->get()->count();
 
             if($count == 0){
-                echo "Tiene 0 items en ese año";
                 $documento->numero = 1;
             } else {
-                echo "Tiene al menos 1 items en ese año";
                 $documento->where('anio', '=', $documento->anio)->orderBy('numero', 'desc')->first();
                 $documento->increment('numero');
             }

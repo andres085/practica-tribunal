@@ -14,6 +14,6 @@ class DocumentoTipoSeeder extends Seeder
      */
     public function run()
     {
-        DocumentoTipo::factory()->times(10)->create();
+        DocumentoTipo::factory()->times(5)->create();
     }
 }

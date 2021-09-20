@@ -16,7 +16,7 @@ class DocumentoController extends Controller
      */
     public function index()
     {
-        $documentos = Documento::all();
+        $documentos = Documento::with('observaciones')->get()->all();
 
         return response()->json($documentos);
     }
@@ -39,7 +39,7 @@ class DocumentoController extends Controller
      */
     public function store(DocumentoStoreRequest $request)
     {
-        $documento = Documento::create($request->post());
+        $documento = Documento::create($request->validated());
         // dd($documento);
 
         return response()->json([
@@ -59,24 +59,13 @@ class DocumentoController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Documento  $documento
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Documento $documento)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Documento  $documento
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Documento $documento)
+    public function update(DocumentoStoreRequest $request, Documento $documento)
     {
         $documento->fill($request->post())->save();
         return response()->json([

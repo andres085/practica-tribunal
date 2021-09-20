@@ -21,16 +21,6 @@ class DocumentoObservacionController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -38,7 +28,7 @@ class DocumentoObservacionController extends Controller
      */
     public function store(DocumentoObservacionStoreRequest $request)
     {
-        $documentoObservacion = DocumentoObservacion::create($request->validated());
+        $documentoObservacion = DocumentoObservacion::create($request->post());
 
         return response()->json([
             'documentoObservacion'=>$documentoObservacion
@@ -57,16 +47,6 @@ class DocumentoObservacionController extends Controller
         return response()->json($documentoObservacion);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\DocumentoObservacion  $documentoObservacion
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(DocumentoObservacion $documentoObservacion)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -75,7 +55,7 @@ class DocumentoObservacionController extends Controller
      * @param  \App\Models\DocumentoObservacion  $documentoObservacion
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DocumentoObservacion $documentoObservacion)
+    public function update(DocumentoObservacionStoreRequest $request, DocumentoObservacion $documentoObservacion)
     {
         $documentoObservacion->fill($request->post())->save();
         return response()->json([

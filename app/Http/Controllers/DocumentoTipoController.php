@@ -21,15 +21,6 @@ class DocumentoTipoController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -58,16 +49,6 @@ class DocumentoTipoController extends Controller
         return response()->json($documentoTipo);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\DocumentoTipo  $documentoTipo
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(DocumentoTipo $documentoTipo)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -76,7 +57,7 @@ class DocumentoTipoController extends Controller
      * @param  \App\Models\DocumentoTipo  $documentoTipo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DocumentoTipo $documentoTipo)
+    public function update(DocumentoTipoStoreRequest $request, DocumentoTipo $documentoTipo)
     {
         $documentoTipo->fill($request->post())->save();
         return response()->json([

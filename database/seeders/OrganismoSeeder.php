@@ -14,6 +14,6 @@ class OrganismoSeeder extends Seeder
      */
     public function run()
     {
-        Organismo::factory()->times(10)->create();
+        Organismo::factory()->times(5)->create();
     }
 }
