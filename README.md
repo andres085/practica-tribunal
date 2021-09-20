@@ -5,12 +5,10 @@ dichas acciones.
 </p>
 <h2 id="instalación"><strong>Instalación:</strong></h2>
 <p>1- Clonar el proyecto desde el repositorio con el comando.</p>
-<pre><code>
-#HTTPS
+<pre><code>#HTTPS
 git clone https://github.com/andres085/practica-tribunal.git
 </code></pre>
-<pre><code>
-#SSH
+<pre><code>#SSH
 git@github.com:andres085/practica-tribunal.git</code></pre>
 <p>2- Ir a la carpeta del proyecto con el comando.</p>
 <pre><code>cd practica-tribunal
@@ -19,13 +17,12 @@ git@github.com:andres085/practica-tribunal.git</code></pre>
 <pre><code>cp .env.example .env
 </code></pre>
 <p>4- Colocar las siguientes variables de entorno</p>
-<p>
-DB_CONNECTION=mysql
-DB_HOST=mysql o ip de mysql en el contenedor
-DB_PORT=3306
-DB_DATABASE=practica_tribunal
-DB_USERNAME=root
-DB_PASSWORD=root
+<p>DB_CONNECTION=mysql</p>
+<p>DB_HOST=mysql o ip de mysql en el contenedor</p>
+<p>DB_PORT=3306</p>
+<p>DB_DATABASE=practica_tribunal</p>
+<p>DB_USERNAME=root</p>
+<p>DB_PASSWORD=root</p>
 </p>
 <p>5- Clonar laradock para levantar el entorno dockerizado</p>
 <pre><code>git clone https://github.com/Laradock/laradock.git
@@ -54,6 +51,6 @@ DB_PASSWORD=root
 <p>Tipos de Documentos. <pre><code>/api/documento-tipo</code></pre></p>
 <p>Observaciones de Documentos. <pre><code>/api/documento-observacion</code></pre></p>
 <p><strong>Para mas información remitirse a la documentación sobre la API</strong></p>
-<a>https://drive.google.com/file/d/1fCU3P795T58HPRvfszjA1cZRQJwGV6tx/view?usp=sharing</a>
+<a href="https://drive.google.com/file/d/1fCU3P795T58HPRvfszjA1cZRQJwGV6tx/view?usp=sharing">Documentación</a>
 
 
