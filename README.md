@@ -55,5 +55,6 @@ git@github.com:andres085/practica-tribunal.git</code></pre>
 <p>Observaciones de Documentos. <pre><code>/api/documento-observacion</code></pre></p>
 <p><strong>Para mas información remitirse a la documentación sobre la API</strong></p>
 <a href="https://drive.google.com/file/d/1fCU3P795T58HPRvfszjA1cZRQJwGV6tx/view?usp=sharing">Documentación</a>
+<a href="https://drive.google.com/file/d/1Yhi54yFcl-EKF0McZpG88jMFdqGGHQ2-/view?usp=sharing">Modelado Base de Datos</a>
 
 
