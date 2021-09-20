@@ -30,7 +30,10 @@ git@github.com:andres085/practica-tribunal.git</code></pre>
 <p>6- Ingresar a la carpeta laradock</p>
 <pre><code>cd laradock
 </code></pre>
-<p>6- Levantar Docker con Nginx y MySQL</p>
+<p>7- Copiar el .env</p>
+<pre><code>cp .env.example .env
+</code></pre>
+<p>8- Levantar Docker con Nginx y MySQL</p>
 <pre><code>docker-compose up -d nginx mysql
 </code></pre>
 <p><strong>Para migrar los datos base de la API y la base de datos</strong></p>
