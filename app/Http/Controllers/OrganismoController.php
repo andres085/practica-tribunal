@@ -20,15 +20,6 @@ class OrganismoController extends Controller
         return response()->json($organismos);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -56,16 +47,6 @@ class OrganismoController extends Controller
         return response()->json($organismo);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Organismo  $organismo
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Organismo $organismo)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.

@@ -44,7 +44,7 @@ class DocumentoStoreRequest extends FormRequest
     public function messages()
     {
         return [
-            'id_expediente.required' => 'Id expediente requerida.',
+            'id_expediente.required' => 'Id expediente requerido.',
             'id_tipo.required' => 'Debe seleccionar un tipo de expediente.',
             'anio.required' => 'El año es requerido.',
             'tema.required' => 'El tema es requerido.',
